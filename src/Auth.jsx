@@ -61,28 +61,32 @@ const Auth = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-svh w-full overflow-auto bg-bg dark:bg-dbg transition-all duration-150">
+    <div className="flex justify-center items-center min-h-svh w-full overflow-auto bg-white dark:bg-neutral-900 transition-all duration-150">
       <div className='gap-2 w-full flex flex-col max-w-2xl items-end p-2 relative'>
         <DarkModeToggle />
         <div
-          className={`w-full p-10 bg-neutral-300 dark:bg-neutral-800 rounded-lg border border-blackt dark:border-whitet  transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          className={`
+            w-full p-10 bg-white dark:bg-neutral-900 rounded-lg 
+            transition-opacity duration-300 border border-black/20 dark:border-white/20
+            ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`
+          }
         >
           <form onSubmit={isLogin ? handleLogIn : handleSignUp}>
             <div className='flex flex-col'>
               <input 
                 placeholder="email" 
-                className='p-2 mt-4 rounded text-sm bg-black/5 dark:bg-white/5
-                text-black placeholder:text-black/60 dark:placeholder:text-white/60 
-                dark:text-white' 
+                className='p-2 mt-4 rounded text-sm bg-white dark:bg-neutral-900 border-black/30 
+                border dark:border-white/20 text-black placeholder:text-black/60 
+                dark:placeholder:text-white/60 dark:text-white' 
                 type="email" 
                 onChange={(e) => setEmail(e.target.value)}
               />
 
               <input 
                 placeholder="password" 
-                className='p-2 mt-4 rounded text-sm bg-black/5 dark:bg-white/5
-                text-black placeholder:text-black/60 dark:placeholder:text-white/60 
-                dark:text-white' 
+                className='p-2 mt-4 rounded text-sm bg-white dark:bg-neutral-900 border-black/30 
+                border dark:border-white/20 text-black placeholder:text-black/60 
+                dark:placeholder:text-white/60 dark:text-white'
                 type="password"
                 onChange={(e) => setPassword(e.target.value)} 
               />
@@ -90,16 +94,16 @@ const Auth = () => {
               <button 
                 type="submit" 
                 disabled={loading} 
-                className='p-2 mt-8 w-full bg-dblue dark:bg-blue  rounded text-bg dark:text-dbg font-bold'
+                className='p-2 mt-8 w-full bg-blue-600 dark:bg-blue-400 rounded text-white dark:text-neutral-900 font-bold'
               >
                 {loading ? (isLogin ? 'Logging in...' : 'Signing up...') : (isLogin ? 'LOG IN' : 'SIGN UP')}
               </button>
 
             </div>
           </form>
-          <p className='text-black dark:text-white text-center py-4'>
+          <p className='text-black dark:text-white text-center py-4 font-medium'>
             {isLogin ? 'Dont have an account? ' : 'Already have an account? '}
-            <button onClick={handleSwitch} className='text-dblue dark:text-blue'>
+            <button onClick={handleSwitch} className='text-blue-600 dark:text-blue-400'>
               {isLogin ? 'Sign up' : 'Log in'}
             </button>
           </p>
