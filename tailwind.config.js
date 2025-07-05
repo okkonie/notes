@@ -1,22 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        border: 'rgb(204, 204, 204)',
-        dborder: 'rgb(30, 30, 30)',
-        greenlightest: '#b0ffb7',
-        greenlight: '#93f59b',
-        greenbase: '#00780b',
-        greendark: '#014707',
-        greendarkest: '#013b06',
+        background: 'rgb(var(--background) / <alpha-value>)',
+        text: 'rgb(var(--text) / <alpha-value>)',
+        border: 'rgb(var(--border) / <alpha-value>)',
+        secondtext: 'rgb(var(--second-text) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        accentlight: 'rgb(var(--accentlight) / <alpha-value>)',
+        red: 'rgb(var(--red) / <alpha-value>)',
       },
     },
   },
   plugins: [],
-}
+};

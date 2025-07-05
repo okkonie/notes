@@ -47,9 +47,9 @@ const NoteModal = ({ closeModal, title, setTitle, content, setContent, editingNo
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="bg-white dark:bg-neutral-900 mx-2 flex flex-col rounded-lg shadow-md p-6 w-full max-w-md relative">
-        <button onClick={closeModal} className="absolute top-3 right-3 text-gray-400 hover:text-gray-600">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+      <div className="bg-background mx-2 flex flex-col rounded-lg shadow-md p-6 w-full max-w-md relative text-text border-2 border-border">
+        <button onClick={closeModal} className="absolute top-3 right-3">
           <X />
         </button>
         <h2 className="text-xl font-semibold mb-4">
@@ -58,9 +58,8 @@ const NoteModal = ({ closeModal, title, setTitle, content, setContent, editingNo
         <input
           ref={titleRef}
           onKeyDown={handleKeyDown}
-          className='p-2 mt-4 rounded text-sm bg-white dark:bg-neutral-900 border-black/30 
-            border dark:border-white/20 text-black placeholder:text-black/60 
-            dark:placeholder:text-white/60 dark:text-white'
+          className='p-2 mt-4 rounded text-sm border-border
+            border bg-background placeholder:text-secondtext'
           placeholder="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -68,9 +67,8 @@ const NoteModal = ({ closeModal, title, setTitle, content, setContent, editingNo
         <textarea
           ref={contentRef}
           onKeyUp={handleKeyUp}
-          className='p-2 mt-4 rounded text-sm bg-white dark:bg-neutral-900 border-black/30 
-            border dark:border-white/20 text-black placeholder:text-black/60 
-            dark:placeholder:text-white/60 dark:text-white'
+          className='p-2 mt-4 rounded text-sm border-border
+            border bg-background placeholder:text-secondtext'
           placeholder="content"
           rows="5"
           value={content}
@@ -78,9 +76,8 @@ const NoteModal = ({ closeModal, title, setTitle, content, setContent, editingNo
         />
         <button
           onClick={handleSubmit}
-          className="text-greendarkest dark:text-greenlightest font-bold mt-8 transition-all duration-150
-            flex items-center gap-1 px-4 py-2 bg-greenlight hover:bg-greenlightest
-            dark:bg-greendark dark:hover:bg-greendarkest rounded justify-center text-sm"
+          className="bg-accent text-background font-bold mt-8 transition-all duration-150
+            flex items-center gap-1 px-4 py-2 hover:opacity-80 rounded justify-center text-sm"
         >
           {editingNote ? 'Update Note' : 'Add Note'}
         </button>

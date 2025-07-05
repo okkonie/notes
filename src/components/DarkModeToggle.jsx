@@ -11,13 +11,25 @@ const DarkModeToggle = () => {
   });
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDark(savedTheme === 'dark');
+    } else {
+      setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+  }, []);
+
+  useEffect(() => {
     const root = window.document.documentElement;
     if (isDark) {
       root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
+
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -34,8 +46,7 @@ const DarkModeToggle = () => {
       onClick={toggleDarkMode}
       className="
         size-10 flex items-center justify-center rounded-lg
-        bg-bg border-blackt dark:hover:bg-white/20 hover:bg-neutral-900/20
-        transition-all duraiton-150 border border-border dark:border-dborder
+        border-border border transition-all duraiton-150 hover:bg-border
       "
     >
       {isDark ? <Moon className='size-5 text-white'/> : <Sun className='size-5 text-neutral-900'/>}

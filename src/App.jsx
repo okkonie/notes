@@ -113,12 +113,11 @@ const App = () => {
   return (
     <div className="
       flex flex-col items-center min-h-svh w-full overflow-auto
-     bg-white dark:bg-neutral-900 transition-all duration-150 
-     text-black dark:text-white"
+      bg-background text-text transition-all duration-150"
     >
       <div className='py-5 gap-3 items-center w-full flex max-w-4xl justify-between flex-wrap px-2'>
-        <p className='text-black dark:text-white font-bold text-2xl tracking-widest'>note
-          <span className='text-greenbase dark:text-greenlight'>5</span>
+        <p className='font-bold text-2xl tracking-widest font-outfit'>NOTE
+          <span className='text-accent'>5</span>
           </p>
         <div className='flex gap-2 items-center'>
           <AddButton openModal={openModal}/>

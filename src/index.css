@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --text: 0 0 0;
+  --border: 210 210 210;
+  --second-text: 30 30 30;
+  --accent: 56 125 81;
+  --red: 255 0 0;
+}
+
+.dark {
+  --background: 0 0 0;
+  --text: 255 255 255;
+  --border: 20 20 20;
+  --second-text: 220 220 220;
+  --accent: 77 171 111;
+  --red: 255 80 80;
+}
