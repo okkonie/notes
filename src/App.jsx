@@ -1,5 +1,5 @@
 import './index.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import DarkModeToggle from './components/DarkModeToggle'
 import SignOutButton from './components/SignOutButton'
 import { UserAuth } from './contexts/AuthContext'
@@ -10,11 +10,14 @@ import { supabase } from '.././supabaseClient'
 import { Search } from 'lucide-react'
 
 const App = () => {
+
   const {session} = UserAuth()
   const user = session?.user
 
   const [notes, setNotes] = useState([])
+  const [filteredNotes, setFilteredNotes] = useState([])
   const [title, setTitle] = useState('')
+  const [search, setSearch] = useState('')
   const [content, setContent] = useState('')
   const [editingNote, setEditingNote] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -61,6 +64,18 @@ const App = () => {
 
     if (!error) setNotes(data)
   }
+
+useEffect(() => {
+  const filteredNotes = notes.filter(note => {
+    if (!search) return true
+    const lowerSearch = search.toLowerCase()
+    return (
+      note.title.toLowerCase().includes(lowerSearch) ||
+      note.content.toLowerCase().includes(lowerSearch)
+    )
+  })
+  setFilteredNotes(filteredNotes)
+}, [search, notes])
 
   const openModal = (note = null) => {
     if (note) {
@@ -129,13 +144,13 @@ const App = () => {
       <div className='py-5 items-center justify-center flex w-full max-w-5xl h-[10svh] min-h-20 gap-3'>
         <div className='w-[75%] max-w-lg h-10 border border-border rounded-full flex items-center p-3 relative'>
           <Search size={16}/>
-          <input type="text" className='absolute left-0 right-0 top-0 bottom-0 pl-10 bg-transparent rounded-full' />
+          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} className='absolute left-0 right-0 top-0 bottom-0 pl-10 bg-transparent rounded-full' />
         </div>
         <AddButton openModal={openModal} />
       </div>
 
       <div className='flex w-full max-w-5xl'> 
-        <Notes notes={notes} openModal={openModal} handleDelete={handleDelete} convertTime={convertTime}/>
+        <Notes notes={filteredNotes} openModal={openModal} handleDelete={handleDelete} convertTime={convertTime}/>
       </div>
       {isModalOpen && 
         <NoteModal closeModal={closeModal} title={title} setTitle={setTitle} content={content} setContent={setContent} editingNote={editingNote} handleSubmit={handleSubmit}/>
