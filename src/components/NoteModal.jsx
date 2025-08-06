@@ -47,8 +47,8 @@ const NoteModal = ({ closeModal, title, setTitle, content, setContent, editingNo
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
-      <div className="bg-background mx-2 flex flex-col rounded-lg shadow-md p-6 w-full max-w-md relative text-text border-2 border-border">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-border/60">
+      <div className="bg-background mx-2 flex flex-col rounded-lg shadow-md p-6 w-full max-w-md relative text-text">
         <button onClick={closeModal} className="absolute top-3 right-3">
           <X />
         </button>

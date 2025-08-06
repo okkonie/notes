@@ -8,7 +8,7 @@ module.exports = {
         background: 'rgb(var(--background) / <alpha-value>)',
         text: 'rgb(var(--text) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
-        secondtext: 'rgb(var(--second-text) / <alpha-value>)',
+        card: 'rgb(var(--card) / <alpha-value>)',
         accent: 'rgb(var(--accent) / <alpha-value>)',
         accentlight: 'rgb(var(--accentlight) / <alpha-value>)',
         red: 'rgb(var(--red) / <alpha-value>)',

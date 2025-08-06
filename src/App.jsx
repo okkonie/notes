@@ -7,6 +7,7 @@ import Notes from './components/Notes'
 import NoteModal from './components/NoteModal'
 import AddButton from './components/AddButton'
 import { supabase } from '.././supabaseClient'
+import { Search } from 'lucide-react'
 
 const App = () => {
   const {session} = UserAuth()
@@ -115,17 +116,25 @@ const App = () => {
       flex flex-col items-center min-h-svh w-full overflow-auto
       bg-background text-text transition-all duration-150"
     >
-      <div className='py-5 gap-3 items-center w-full flex max-w-4xl justify-between flex-wrap px-2'>
+      <div className='py-5 gap-3 items-center w-full flex max-w-5xl justify-between flex-wrap px-2 h-[10svh] min-h-20'>
         <p className='font-bold text-2xl tracking-widest font-outfit'>NOTE
           <span className='text-accent'>5</span>
           </p>
         <div className='flex gap-2 items-center'>
-          <AddButton openModal={openModal}/>
           <SignOutButton />
           <DarkModeToggle />
         </div>
       </div>
-      <div className='flex w-full max-w-4xl'> 
+
+      <div className='py-5 items-center justify-center flex w-full max-w-5xl h-[10svh] min-h-20 gap-3'>
+        <div className='w-[75%] max-w-lg h-10 border border-border rounded-full flex items-center p-3 relative'>
+          <Search size={16}/>
+          <input type="text" className='absolute left-0 right-0 top-0 bottom-0 pl-10 bg-transparent rounded-full' />
+        </div>
+        <AddButton openModal={openModal} />
+      </div>
+
+      <div className='flex w-full max-w-5xl'> 
         <Notes notes={notes} openModal={openModal} handleDelete={handleDelete} convertTime={convertTime}/>
       </div>
       {isModalOpen && 

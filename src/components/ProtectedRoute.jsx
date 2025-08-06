@@ -7,7 +7,11 @@ const ProtectedRoute = ({ children }) => {
   console.log(session)
 
   if (session === undefined) {
-    return <div>Loading...</div>;
+    return (
+    <div className='flex flex1 h-svh bg-background items-center justify-center'>
+      <p className='text-white font-outfit'>Loading...</p>
+    </div>
+    );
   }
 
   if (!session) {

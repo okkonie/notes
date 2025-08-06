@@ -76,8 +76,8 @@ const Auth = () => {
               <input 
                 placeholder="email" 
                 className='p-2 mt-4 rounded text-sm bg-transparent border-border 
-                border dark:border-dborder text-black placeholder:text-black/60 
-                dark:placeholder:text-white/60 dark:text-white font-outfit'
+                border text-text placeholder:text-text/70 
+                font-outfit'
                 type="email" 
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -85,8 +85,8 @@ const Auth = () => {
               <input 
                 placeholder="password" 
                 className='p-2 mt-4 rounded text-sm bg-transparent border-border 
-                border dark:border-dborder text-black placeholder:text-black/60 
-                dark:placeholder:text-white/60 dark:text-white font-outfit'
+                border text-text placeholder:text-text/70 
+                font-outfit'
                 type="password"
                 onChange={(e) => setPassword(e.target.value)} 
               />
@@ -95,22 +95,22 @@ const Auth = () => {
                 type="submit" 
                 disabled={loading} 
                 className='p-2 mt-8 w-full transition-all duration-150
-                bg-greenlightest hover:bg-greenlight dark:bg-greendark dark:hover:bg-greendarkest 
-                rounded text-greendarkest dark:text-greenlight font-semibold font-outfit'
+                bg-accent hover:bg-accentlight
+                rounded text-background font-semibold font-outfit'
               >
                 {loading ? (isLogin ? 'Logging in...' : 'Signing up...') : (isLogin ? 'LOG IN' : 'SIGN UP')}
               </button>
 
             </div>
           </form>
-          <p className='text-black dark:text-white text-center py-4 font-normal font-outfit'>
+          <p className='text-text text-center py-4 font-normal font-outfit'>
             {isLogin ? 'Dont have an account? ' : 'Already have an account? '}
-            <button onClick={handleSwitch} className='text-greendark hover:text-greendarkest dark:text-greenlight dark:hover:text-greenlightest'>
+            <button onClick={handleSwitch} className='text-accent hover:text-accentlight'>
               {isLogin ? 'Sign up' : 'Log in'}
             </button>
           </p>
           {error && 
-            <p className='bg-red-500 rounded text-white font-normal absolute bottom-5 right-5 py-1 px-3 text-sm text-center'>{error}</p>
+            <p className='bg-red rounded text-background font-normal absolute bottom-5 right-5 py-1 px-3 text-sm text-center'>{error}</p>
           }
         </div>
       </div>

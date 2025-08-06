@@ -24,10 +24,10 @@ const SignOutButton = () => {
         onClick={handleSingOut}
         className="
           size-8 flex items-center justify-center rounded-md
-          transition-colors duraiton-150 hover:bg-red/30
+          transition-colors duraiton-150 hover:bg-border/50
         "
       >
-        <LogOut className='size-5 text-red'/>
+        <LogOut className='size-5 text-text'/>
       </button>
     </div>
   )
