@@ -1,3 +1,3 @@
-# NOTE5
+### NOTE5
 
-### notes app with auth and storage for notes built with react and supabase
+notes app with auth and storage (trying out supabase)
